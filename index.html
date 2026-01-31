@@ -2,239 +2,154 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Inversiones Jerónimo | Tienda Online</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Inversiones Jerónimo | Boutique Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Arial, Helvetica, sans-serif;
-}
+:root { --blue-dark: #0F1B2D; --gold: #c5a059; --red-offer: #e74c3c; --light: #f9f9f9; --text: #333; }
+body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--text); line-height: 1.6; background-color: #fff; }
 
-body {
-background: #f4f4f4;
-color: #1a1a1a;
-}
+/* Barra de Anuncio */
+.top-bar { background: var(--blue-dark); color: white; text-align: center; padding: 10px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
 
-header {
-background: #0b1f33;
-color: white;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 40px;
-position: sticky;
-top: 0;
-z-index: 1000;
-}
+/* Header */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--blue-dark); text-decoration: none; font-weight: bold; }
+nav a { margin: 0 15px; text-decoration: none; color: var(--text); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
-header a {
-color: white;
-margin-left: 20px;
-text-decoration: none;
-font-size: 14px;
-}
-
-.logo {
-font-size: 20px;
-font-weight: bold;
-}
-
+/* Hero Banner */
 .hero {
-background:
-linear-gradient(rgba(11,31,51,0.7), rgba(11,31,51,0.7)),
-url("https://images.unsplash.com/photo-1521334884684-d80222895322");
-background-size: cover;
-background-position: center;
-height: 80vh;
-display: flex;
-align-items: center;
-padding: 40px;
-color: white;
+height: 70vh;
+background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1500&q=80') center/cover;
+display: flex; align-items: center; padding: 0 10%; color: white;
 }
+.hero-content { max-width: 600px; }
+.hero h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; line-height: 1.1; }
+.hero p { font-size: 1.1rem; margin: 20px 0 30px; }
+.btn { padding: 15px 35px; border-radius: 2px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; display: inline-block; letter-spacing: 1px; }
+.btn-gold { background: var(--gold); color: white; }
 
-.hero h1 {
-font-size: 42px;
-max-width: 500px;
-}
+/* Beneficios */
+.benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px 10%; background: var(--light); text-align: center; border-bottom: 1px solid #eee; }
+.benefit-item h4 { margin: 0; color: var(--blue-dark); text-transform: uppercase; font-size: 0.9rem; }
+.benefit-item p { font-size: 0.75rem; color: #777; margin-top: 5px; }
 
-.hero p {
-margin-top: 15px;
-font-size: 18px;
-max-width: 450px;
-}
+/* Sección Ofertas */
+.section-title { text-align: center; padding: 60px 0 30px; font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 0 10%; max-width: 1200px; margin: auto; }
+.card { background: white; border-radius: 5px; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.badge { position: absolute; top: 15px; left: 15px; background: var(--red-offer); color: white; padding: 5px 12px; font-weight: bold; font-size: 0.7rem; z-index: 10; }
+.card img { width: 100%; height: 400px; object-fit: cover; transition: 0.5s; }
+.card:hover img { transform: scale(1.05); }
+.info { padding: 20px; text-align: center; }
+.info h3 { margin: 0 0 10px; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; margin-right: 10px; }
+.new-price { color: var(--red-offer); font-weight: bold; font-size: 1.2rem; }
+.btn-add { background: var(--blue-dark); color: white; border: none; width: 100%; padding: 15px; cursor: pointer; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
 
-.btn {
-display: inline-block;
-background: #c9a24d;
-color: #0b1f33;
-padding: 12px 25px;
-margin-top: 20px;
-text-decoration: none;
-border-radius: 4px;
-font-weight: bold;
-}
+/* Sobre Nosotros */
+.about { display: flex; align-items: center; padding: 80px 10%; gap: 50px; background: white; }
+.about-img { flex: 1; height: 450px; background: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80') center/cover; border-radius: 5px; }
+.about-text { flex: 1; padding: 40px; }
 
-.beneficios {
-display: flex;
-justify-content: space-around;
-background: white;
-padding: 30px;
-text-align: center;
-}
+/* Botones Flotantes */
+.social-floating { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
+.float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+.float-btn img { width: 35px; height: 35px; }
+.wa { background-color: #25d366; }
+.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.float-btn:hover { transform: scale(1.1); }
 
-.beneficio {
-font-size: 16px;
-}
-
-.tienda {
-padding: 60px 40px;
-background: white;
-}
-
-.tienda h2 {
-text-align: center;
-margin-bottom: 30px;
-}
-
-.productos {
-display: flex;
-gap: 30px;
-}
-
-.producto {
-background: #f2f2f2;
-padding: 20px;
-border-radius: 6px;
-text-align: center;
-width: 100%;
-}
-
-.producto img {
-width: 100%;
-height: 280px;
-object-fit: cover;
-border-radius: 6px;
-}
-
-.producto h3 {
-margin-top: 15px;
-}
-
-.producto p {
-margin: 10px 0;
-font-weight: bold;
-}
-
-.nosotros {
-padding: 60px 40px;
-background: #f4f4f4;
-}
-
-.nosotros h2 {
-margin-bottom: 15px;
-}
-
-footer {
-background: #0b1f33;
-color: white;
-text-align: center;
-padding: 30px;
-}
-
-footer a {
-color: #c9a24d;
-margin: 0 10px;
-text-decoration: none;
-}
+/* Footer */
+footer { background: var(--blue-dark); color: white; padding: 50px 10% 20px; text-align: center; }
+.footer-bottom { font-size: 0.7rem; color: #666; margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; }
 
 @media (max-width: 768px) {
-.productos,
-.beneficios {
-flex-direction: column;
-}
-
-.hero h1 {
-font-size: 32px;
-}
+.hero h2 { font-size: 2.2rem; }
+.about, .benefits { flex-direction: column; grid-template-columns: 1fr; }
+nav { display: none; }
 }
 </style>
 </head>
-
 <body>
 
+<div class="top-bar">✨ Envíos a toda Colombia | Nueva Colección disponible ✨</div>
+
 <header>
-<div class="logo">Inversiones Jerónimo</div>
+<a href="#" class="logo">INVERSIONES JERÓNIMO</a>
 <nav>
-<a href="#inicio">Inicio</a>
-<a href="#tienda">Tienda</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#contacto">Contacto</a>
+<a href="#">Inicio</a>
+<a href="#">Ofertas</a>
+<a href="#">Contacto</a>
 </nav>
 </header>
 
-<section id="inicio" class="hero">
-<div>
-<h1>Estilo, confianza y calidad</h1>
-<p>Moda seleccionada con envíos seguros a toda Colombia</p>
-<a href="#tienda" class="btn">Ver catálogo</a>
+<section class="hero">
+<div class="hero-content">
+<h2>Tu estilo,<br>nuestra pasión.</h2>
+<p>Descubre piezas exclusivas diseñadas para la mujer moderna y sofisticada.</p>
+<a href="#productos" class="btn btn-gold">Ver Ofertas Hoy</a>
 </div>
 </section>
 
-<section class="beneficios">
-<div class="beneficio">✔ Compra segura</div>
-<div class="beneficio">🚚 Envíos nacionales</div>
-<div class="beneficio">💬 Atención personalizada</div>
+<section class="benefits">
+<div class="benefit-item"><h4>🛡️ Compra Segura</h4><p>Garantía de calidad en cada prenda.</p></div>
+<div class="benefit-item"><h4>🚚 Envíos Rápidos</h4><p>Llegamos a todo el país.</p></div>
+<div class="benefit-item"><h4>💎 Exclusividad</h4><p>Diseños únicos para ti.</p></div>
 </section>
 
-<section id="tienda" class="tienda">
-<h2>Nuestros productos</h2>
+<h2 class="section-title" id="productos">Ofertas de Temporada</h2>
 
-<div class="productos">
-
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Camisa Casual">
-<h3>Camisa Casual</h3>
-<p>$79.900</p>
-<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20la%20Camisa%20Casual">Comprar</a>
+<div class="grid">
+<div class="card">
+<div class="badge">-30% OFF</div>
+<img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500" alt="Ropa 1">
+<div class="info">
+<h3>Vestido Gala Summer</h3>
+<div class="price-box">
+<span class="old-price">$120.000</span>
+<span class="new-price">$84.000</span>
+</div>
+<button class="btn-add">Añadir a la Bolsa</button>
+</div>
+</div>
+<div class="card">
+<div class="badge">-20% OFF</div>
+<img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" alt="Ropa 2">
+<div class="info">
+<h3>Blusa Seda Italiana</h3>
+<div class="price-box">
+<span class="old-price">$75.000</span>
+<span class="new-price">$60.000</span>
+</div>
+<button class="btn-add">Añadir a la Bolsa</button>
+</div>
+</div>
 </div>
 
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" alt="Conjunto Deportivo">
-<h3>Conjunto Deportivo</h3>
-<p>$99.900</p>
-<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20el%20Conjunto%20Deportivo">Comprar</a>
-</div>
-
-<div class="producto">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Vestido Formal">
-<h3>Vestido Formal</h3>
-<p>$129.900</p>
-<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20el%20Vestido%20Formal">Comprar</a>
-</div>
-
+<section class="about">
+<div class="about-img"></div>
+<div class="about-text">
+<h2 style="font-family:'Playfair Display'">Nuestra Esencia</h2>
+<p>En <strong>Inversiones Jerónimo</strong>, creemos que la moda es la expresión más pura de tu personalidad. Seleccionamos cuidadosamente cada prenda para asegurar que te sientas empoderada, elegante y única en cada ocasión.</p>
 </div>
 </section>
 
-<section id="nosotros" class="nosotros">
-<h2>Quiénes somos</h2>
-<p>
-En Inversiones Jerónimo ofrecemos moda cuidadosamente seleccionada,
-combinando elegancia, calidad y una experiencia de compra confiable
-para nuestros clientes.
-</p>
-</section>
+<div class="social-floating">
+<a href="https://instagram.com/tu_usuario" class="float-btn insta" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+</a>
+<a href="https://wa.me/573000000000?text=Hola%20Inversiones%20Jer%C3%B3nimo%2C%20vengo%20de%20tu%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20ropa%20en%20oferta." class="float-btn wa" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+</div>
 
-<footer id="contacto">
-<p>Síguenos en redes</p>
-<p>
-<a href="https://instagram.com/inversionesjeronimo">Instagram</a> |
-<a href="https://facebook.com/inversionesjeronimo">Facebook</a> |
-<a href="https://wa.me/573XXXXXXXXX">WhatsApp</a>
-</p>
-<p style="margin-top:10px;">© 2026 Inversiones Jerónimo</p>
+<footer>
+<p><strong>INVERSIONES JERÓNIMO</strong></p>
+<p style="font-size: 0.8rem; opacity: 0.7;">Boutique de Ropa Femenina - Calidad y Estilo</p>
+<div class="footer-bottom">
+© 2026 Todos los derechos reservados. | Diseñado para el éxito.
+</div>
 </footer>
 
 </body>

@@ -1,64 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Control de Mi Negocio</title>
-    <style>
-        /* Estilos básicos para claridad visual */
-        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
-        .container { max-width: 400px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        input { width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
-        ul { list-style: none; padding: 0; }
-        li { border-bottom: 1px solid #ddd; padding: 10px 0; display: flex; justify-content: space-between; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inversiones Jerónimo | Boutique</title>
+<style>
+:root { --oro: #c5a059; --negro: #1a1a1a; --blanco: #ffffff; }
+body {
+font-family: 'Playfair Display', serif; margin: 0;
+background-color: #f4f4f4; color: var(--negro);
+}
+/* Encabezado con imagen de moda */
+.hero {
+background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80');
+background-size: cover; background-position: center;
+height: 250px; display: flex; flex-direction: column;
+justify-content: center; align-items: center; color: white; text-align: center;
+}
+.hero h1 { font-size: 2.5rem; margin: 0; letter-spacing: 3px; text-transform: uppercase; }
+.hero p { font-style: italic; font-size: 1.1rem; margin-top: 10px; }
+
+.container { max-width: 500px; margin: -50px auto 40px; position: relative; padding: 0 15px; }
+
+.card {
+background: var(--blanco); padding: 30px; border-radius: 15px;
+box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.input-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; color: #555; }
+input {
+width: 100%; padding: 12px; border: 1px solid #ddd;
+border-radius: 8px; box-sizing: border-box; font-size: 16px;
+}
+
+button {
+width: 100%; padding: 15px; background: var(--negro); color: var(--oro);
+border: 2px solid var(--oro); border-radius: 8px; font-weight: bold;
+text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+transition: all 0.3s; margin-top: 10px;
+}
+button:hover { background: var(--oro); color: var(--negro); }
+
+.item-list { margin-top: 25px; list-style: none; padding: 0; }
+.item {
+display: flex; justify-content: space-between; align-items: center;
+padding: 15px 0; border-bottom: 1px solid #eee;
+}
+.item-info { display: flex; align-items: center; gap: 15px; }
+.item-icon { font-size: 24px; }
+
+.total-section {
+margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--negro);
+display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: bold;
+}
+</style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Mi Pequeño Negocio</h2>
-    <input type="text" id="producto" placeholder="Nombre del producto">
-    <input type="number" id="precio" placeholder="Precio ($)">
-    <button onclick="agregarProducto()">Agregar a la lista</button>
+<div class="hero">
+<h1>Inversiones Jerónimo</h1>
+<p>Exclusividad en cada prenda</p>
+</div>
 
-    <h3>Resumen:</h3>
-    <ul id="listaProductos"></ul>
-    <p><strong>Total: $<span id="totalVenta">0</span></strong></p>
+<div class="container">
+<div class="card">
+<div class="input-group">
+<label>Prenda / Artículo</label>
+<input type="text" id="producto" placeholder="Ej: Vestido de seda">
+</div>
+<div class="input-group">
+<label>Precio Unitario</label>
+<input type="number" id="precio" placeholder="0.00">
+</div>
+<button onclick="agregar()">Registrar Venta</button>
+
+<ul id="lista" class="item-list"></ul>
+
+<div class="total-section">
+<span>TOTAL</span>
+<span id="total">$ 0.00</span>
+</div>
+</div>
 </div>
 
 <script>
-    // Variables para mantener el estado
-    let total = 0;
-
-    /**
-     * Función para agregar productos a la interfaz
-     */
-    function agregarProducto() {
-        const inputProducto = document.getElementById('producto');
-        const inputPrecio = document.getElementById('precio');
-        const lista = document.getElementById('listaProductos');
-        const displayTotal = document.getElementById('totalVenta');
-
-        if (inputProducto.value === '' || inputPrecio.value === '') {
-            alert("Por favor, completa ambos campos");
-            return;
-        }
-
-        // Crear elemento de lista
-        const li = document.createElement('li');
-        li.innerHTML = `<span>${inputProducto.value}</span> <span>$${inputPrecio.value}</span>`;
-        lista.appendChild(li);
-
-        // Actualizar el total matemático
-        total += parseFloat(inputPrecio.value);
-        displayTotal.innerText = total.toFixed(2);
-
-        // Limpiar campos
-        inputProducto.value = '';
-        inputPrecio.value = '';
-    }
+let t = 0;
+function agregar() {
+const p = document.getElementById('producto');
+const pr = document.getElementById('precio');
+const l = document.getElementById('lista');
+if(p.value && pr.value) {
+const li = document.createElement('li');
+li.className = 'item';
+li.innerHTML = `<div class="item-info"><span class="item-icon">👗</span><span>${p.value}</span></div> <strong>$${parseFloat(pr.value).toFixed(2)}</strong>`;
+l.appendChild(li);
+t += parseFloat(pr.value);
+document.getElementById('total').innerText = `$ ${t.toFixed(2)}`;
+p.value = ''; pr.value = '';
+}
+}
 </script>
 
 </body>
-
 </html>

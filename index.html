@@ -2,130 +2,240 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Inversiones Jerónimo | Tienda Online</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inversiones Jerónimo | Luxury & Offers</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
 <style>
-:root { --gold: #c5a059; --red: #e74c3c; --dark: #121212; --light: #ffffff; }
-body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fdfdfd; color: var(--dark); }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
 
-/* Barra de Oferta Flash */
-.flash-sale { background: var(--dark); color: white; text-align: center; padding: 10px; font-size: 0.8rem; letter-spacing: 2px; }
-.timer { color: var(--gold); font-weight: bold; }
+body {
+background: #f4f4f4;
+color: #1a1a1a;
+}
 
-header { background: white; padding: 30px; text-align: center; border-bottom: 1px solid #f0f0f0; sticky; top: 0; z-index: 100; }
-header h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 2rem; letter-spacing: 5px; }
+header {
+background: #0b1f33;
+color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 40px;
+position: sticky;
+top: 0;
+z-index: 1000;
+}
 
-.section-title { text-align: center; padding: 40px 0 20px; text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; }
+header a {
+color: white;
+margin-left: 20px;
+text-decoration: none;
+font-size: 14px;
+}
 
-/* Contenedor de Productos */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; max-width: 1200px; margin: auto; }
+.logo {
+font-size: 20px;
+font-weight: bold;
+}
 
-.card { background: white; border-radius: 10px; overflow: hidden; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-.card img { width: 100%; height: 380px; object-fit: cover; }
+.hero {
+background:
+linear-gradient(rgba(11,31,51,0.7), rgba(11,31,51,0.7)),
+url("https://images.unsplash.com/photo-1521334884684-d80222895322");
+background-size: cover;
+background-position: center;
+height: 80vh;
+display: flex;
+align-items: center;
+padding: 40px;
+color: white;
+}
 
-/* Etiqueta de Descuento */
-.badge { position: absolute; top: 15px; left: 15px; background: var(--red); color: white; padding: 5px 12px; font-weight: bold; border-radius: 5px; font-size: 0.8rem; }
+.hero h1 {
+font-size: 42px;
+max-width: 500px;
+}
 
-.info { padding: 20px; text-align: center; }
-.info h3 { margin: 0 0 10px; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.hero p {
+margin-top: 15px;
+font-size: 18px;
+max-width: 450px;
+}
 
-.price-box { margin-bottom: 15px; }
-.old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; margin-right: 10px; }
-.new-price { color: var(--red); font-weight: bold; font-size: 1.2rem; }
+.btn {
+display: inline-block;
+background: #c9a24d;
+color: #0b1f33;
+padding: 12px 25px;
+margin-top: 20px;
+text-decoration: none;
+border-radius: 4px;
+font-weight: bold;
+}
 
-.btn-add { background: var(--dark); color: white; border: none; width: 100%; padding: 15px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; }
-.btn-add:hover { background: var(--gold); }
+.beneficios {
+display: flex;
+justify-content: space-around;
+background: white;
+padding: 30px;
+text-align: center;
+}
 
-/* Carrito */
-.cart-bar { position: fixed; bottom: 20px; left: 20px; right: 20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 -5px 25px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; z-index: 1000; display: none; border-left: 5px solid var(--gold); }
-.btn-wa { background: #25d366; color: white; text-decoration: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; }
+.beneficio {
+font-size: 16px;
+}
+
+.tienda {
+padding: 60px 40px;
+background: white;
+}
+
+.tienda h2 {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.productos {
+display: flex;
+gap: 30px;
+}
+
+.producto {
+background: #f2f2f2;
+padding: 20px;
+border-radius: 6px;
+text-align: center;
+width: 100%;
+}
+
+.producto img {
+width: 100%;
+height: 280px;
+object-fit: cover;
+border-radius: 6px;
+}
+
+.producto h3 {
+margin-top: 15px;
+}
+
+.producto p {
+margin: 10px 0;
+font-weight: bold;
+}
+
+.nosotros {
+padding: 60px 40px;
+background: #f4f4f4;
+}
+
+.nosotros h2 {
+margin-bottom: 15px;
+}
+
+footer {
+background: #0b1f33;
+color: white;
+text-align: center;
+padding: 30px;
+}
+
+footer a {
+color: #c9a24d;
+margin: 0 10px;
+text-decoration: none;
+}
+
+@media (max-width: 768px) {
+.productos,
+.beneficios {
+flex-direction: column;
+}
+
+.hero h1 {
+font-size: 32px;
+}
+}
 </style>
 </head>
+
 <body>
 
-<div class="flash-sale">OFERTAS DE TEMPORADA TERMINAN EN: <span class="timer" id="countdown">00:00:00</span></div>
-
 <header>
-<h1>INVERSIONES JERÓNIMO</h1>
-<p style="font-size: 0.6rem; letter-spacing: 3px; color: #999;">EXCLUSIVIDAD FEMENINA</p>
+<div class="logo">Inversiones Jerónimo</div>
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#tienda">Tienda</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</nav>
 </header>
 
-<div class="section-title">✨ Ofertas Irresistibles ✨</div>
-
-<div class="grid" id="productos-grid">
-</div>
-
-<div class="cart-bar" id="cart-bar">
+<section id="inicio" class="hero">
 <div>
-<span id="qty">0</span> PRENDAS SELECCIONADAS<br>
-<strong>TOTAL: $<span id="total">0</span></strong>
+<h1>Estilo, confianza y calidad</h1>
+<p>Moda seleccionada con envíos seguros a toda Colombia</p>
+<a href="#tienda" class="btn">Ver catálogo</a>
 </div>
-<a href="#" id="wa-link" class="btn-wa" target="_blank">PEDIR POR WHATSAPP</a>
+</section>
+
+<section class="beneficios">
+<div class="beneficio">✔ Compra segura</div>
+<div class="beneficio">🚚 Envíos nacionales</div>
+<div class="beneficio">💬 Atención personalizada</div>
+</section>
+
+<section id="tienda" class="tienda">
+<h2>Nuestros productos</h2>
+
+<div class="productos">
+
+<div class="producto">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Camisa Casual">
+<h3>Camisa Casual</h3>
+<p>$79.900</p>
+<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20la%20Camisa%20Casual">Comprar</a>
 </div>
 
-<script>
-// LISTA DE PRODUCTOS CON OFERTAS
-const productos = [
-{ id: 1, nombre: "Vestido Rojo Pasión", precioAnt: 150000, precioNuevo: 95000, desc: "-35%", img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500" },
-{ id: 2, nombre: "Blusa Floral Seda", precioAnt: 80000, precioNuevo: 45000, desc: "-40%", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" },
-{ id: 3, nombre: "Jeans Slim Fit", precioAnt: 120000, precioNuevo: 89000, desc: "-25%", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" },
-{ id: 4, nombre: "Conjunto Gala Black", precioAnt: 250000, precioNuevo: 175000, desc: "-30%", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" }
-];
-
-let carrito = [];
-let montoTotal = 0;
-
-function cargarTienda() {
-const contenedor = document.getElementById('productos-grid');
-productos.forEach(p => {
-contenedor.innerHTML += `
-<div class="card">
-<div class="badge">${p.desc} OFF</div>
-<img src="${p.img}" alt="${p.nombre}">
-<div class="info">
-<h3>${p.nombre}</h3>
-<div class="price-box">
-<span class="old-price">$${p.precioAnt.toLocaleString()}</span>
-<span class="new-price">$${p.precioNuevo.toLocaleString()}</span>
+<div class="producto">
+<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" alt="Conjunto Deportivo">
+<h3>Conjunto Deportivo</h3>
+<p>$99.900</p>
+<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20el%20Conjunto%20Deportivo">Comprar</a>
 </div>
-<button class="btn-add" onclick="agregar(${p.id})">Agregar a la Bolsa</button>
+
+<div class="producto">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Vestido Formal">
+<h3>Vestido Formal</h3>
+<p>$129.900</p>
+<a class="btn" href="https://wa.me/573XXXXXXXXX?text=Quiero%20el%20Vestido%20Formal">Comprar</a>
 </div>
+
 </div>
-`;
-});
-}
+</section>
 
-function agregar(id) {
-const prod = productos.find(p => p.id === id);
-carrito.push(prod);
-montoTotal += prod.precioNuevo;
+<section id="nosotros" class="nosotros">
+<h2>Quiénes somos</h2>
+<p>
+En Inversiones Jerónimo ofrecemos moda cuidadosamente seleccionada,
+combinando elegancia, calidad y una experiencia de compra confiable
+para nuestros clientes.
+</p>
+</section>
 
-document.getElementById('cart-bar').style.display = 'flex';
-document.getElementById('qty').innerText = carrito.length;
-document.getElementById('total').innerText = montoTotal.toLocaleString();
-
-// MENSAJE DE WHATSAPP
-let msg = "Hola Inversiones Jerónimo! 🔥 Aproveché las ofertas: ";
-carrito.forEach(i => msg += `%0A- ${i.nombre} ($${i.precioNuevo})`);
-msg += `%0A%0ATotal a pagar: $${montoTotal}`;
-
-const miNumero = "573001234567"; // CAMBIA ESTO POR TU CELULAR
-document.getElementById('wa-link').href = `https://wa.me/${miNumero}?text=${msg}`;
-}
-
-// CRONOMETRO DE PRUEBA (24 horas)
-let h = 24, m = 0, s = 0;
-setInterval(() => {
-if(s>0) s--; else { s=59; if(m>0) m--; else { m=59; h--; }}
-document.getElementById('countdown').innerText = `${h}:${m<10?'0'+m:m}:${s<10?'0'+s:s}`;
-}, 1000);
-
-cargarTienda();
-</script>
+<footer id="contacto">
+<p>Síguenos en redes</p>
+<p>
+<a href="https://instagram.com/inversionesjeronimo">Instagram</a> |
+<a href="https://facebook.com/inversionesjeronimo">Facebook</a> |
+<a href="https://wa.me/573XXXXXXXXX">WhatsApp</a>
+</p>
+<p style="margin-top:10px;">© 2026 Inversiones Jerónimo</p>
+</footer>
 
 </body>
 </html>
-
-
-

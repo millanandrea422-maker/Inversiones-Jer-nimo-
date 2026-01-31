@@ -3,106 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inversiones Jerónimo | Boutique Femenina</title>
+<title>Inversiones Jerónimo | Luxury & Offers</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-:root { --pink: #ff85a1; --dark: #2d2d2d; --glass: rgba(255, 255, 255, 0.9); }
-body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff5f7; color: var(--dark); }
+:root { --gold: #c5a059; --red: #e74c3c; --dark: #121212; --light: #ffffff; }
+body { font-family: 'Montserrat', sans-serif; margin: 0; background: #fdfdfd; color: var(--dark); }
 
-/* Encabezado Elegante */
-header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-header h1 { margin: 0; color: var(--pink); letter-spacing: 2px; font-size: 1.5rem; }
+/* Barra de Oferta Flash */
+.flash-sale { background: var(--dark); color: white; text-align: center; padding: 10px; font-size: 0.8rem; letter-spacing: 2px; }
+.timer { color: var(--gold); font-weight: bold; }
 
-/* Banner de Colección */
-.banner { width: 100%; height: 200px; background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80') center/cover; display: flex; align-items: center; justify-content: center; }
-.banner-text { background: rgba(0,0,0,0.4); color: white; padding: 10px 20px; border-radius: 5px; backdrop-filter: blur(5px); }
+header { background: white; padding: 30px; text-align: center; border-bottom: 1px solid #f0f0f0; sticky; top: 0; z-index: 100; }
+header h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 2rem; letter-spacing: 5px; }
 
-/* Galería de Ropa */
-.catalog { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-.product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-.product-card img { width: 100%; height: 200px; object-fit: cover; }
-.product-info { padding: 12px; text-align: center; }
-.product-info h3 { margin: 5px 0; font-size: 0.9rem; }
-.price { color: var(--pink); font-weight: bold; font-size: 1.1rem; }
+.section-title { text-align: center; padding: 40px 0 20px; text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; }
 
-.btn-add { background: var(--pink); color: white; border: none; width: 100%; padding: 10px; border-radius: 0 0 15px 15px; cursor: pointer; font-weight: bold; }
+/* Contenedor de Productos */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; max-width: 1200px; margin: auto; }
 
-/* Carrito Flotante */
-.cart-summary { position: fixed; bottom: 20px; right: 20px; left: 20px; background: var(--dark); color: white; padding: 15px; border-radius: 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); visibility: hidden; }
-.btn-order { background: #25d366; color: white; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 0.8rem; }
+.card { background: white; border-radius: 10px; overflow: hidden; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.card img { width: 100%; height: 380px; object-fit: cover; }
+
+/* Etiqueta de Descuento */
+.badge { position: absolute; top: 15px; left: 15px; background: var(--red); color: white; padding: 5px 12px; font-weight: bold; border-radius: 5px; font-size: 0.8rem; }
+
+.info { padding: 20px; text-align: center; }
+.info h3 { margin: 0 0 10px; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+
+.price-box { margin-bottom: 15px; }
+.old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; margin-right: 10px; }
+.new-price { color: var(--red); font-weight: bold; font-size: 1.2rem; }
+
+.btn-add { background: var(--dark); color: white; border: none; width: 100%; padding: 15px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; }
+.btn-add:hover { background: var(--gold); }
+
+/* Carrito */
+.cart-bar { position: fixed; bottom: 20px; left: 20px; right: 20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 -5px 25px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; z-index: 1000; display: none; border-left: 5px solid var(--gold); }
+.btn-wa { background: #25d366; color: white; text-decoration: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; font-size: 0.9rem; }
 </style>
 </head>
 <body>
 
+<div class="flash-sale">OFERTAS DE TEMPORADA TERMINAN EN: <span class="timer" id="countdown">00:00:00</span></div>
+
 <header>
 <h1>INVERSIONES JERÓNIMO</h1>
+<p style="font-size: 0.6rem; letter-spacing: 3px; color: #999;">EXCLUSIVIDAD FEMENINA</p>
 </header>
 
-<div class="banner">
-<div class="banner-text"><h2>Nueva Colección ✨</h2></div>
+<div class="section-title">✨ Ofertas Irresistibles ✨</div>
+
+<div class="grid" id="productos-grid">
 </div>
 
-<div class="catalog" id="catalogo">
+<div class="cart-bar" id="cart-bar">
+<div>
+<span id="qty">0</span> PRENDAS SELECCIONADAS<br>
+<strong>TOTAL: $<span id="total">0</span></strong>
 </div>
-
-<div class="cart-summary" id="cartBar">
-<div>Items: <span id="cartCount">0</span> | <strong>Total: $<span id="cartTotal">0</span></strong></div>
-<a href="#" class="btn-order" id="whatsappBtn" target="_blank">Pedir por WhatsApp</a>
+<a href="#" id="wa-link" class="btn-wa" target="_blank">PEDIR POR WHATSAPP</a>
 </div>
 
 <script>
-// Lista de productos de tu tienda
+// LISTA DE PRODUCTOS CON OFERTAS
 const productos = [
-{ id: 1, nombre: "Vestido Floral Gala", precio: 85000, img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400" },
-{ id: 2, nombre: "Blusa Seda Blanca", precio: 45000, img: "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=400" },
-{ id: 3, nombre: "Jeans High Rise", precio: 120000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400" },
-{ id: 4, nombre: "Conjunto Deportivo", precio: 95000, img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" }
+{ id: 1, nombre: "Vestido Rojo Pasión", precioAnt: 150000, precioNuevo: 95000, desc: "-35%", img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500" },
+{ id: 2, nombre: "Blusa Floral Seda", precioAnt: 80000, precioNuevo: 45000, desc: "-40%", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" },
+{ id: 3, nombre: "Jeans Slim Fit", precioAnt: 120000, precioNuevo: 89000, desc: "-25%", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" },
+{ id: 4, nombre: "Conjunto Gala Black", precioAnt: 250000, precioNuevo: 175000, desc: "-30%", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" }
 ];
 
 let carrito = [];
-let total = 0;
+let montoTotal = 0;
 
-function cargarCatalogo() {
-const div = document.getElementById('catalogo');
+function cargarTienda() {
+const contenedor = document.getElementById('productos-grid');
 productos.forEach(p => {
-div.innerHTML += `
-<div class="product-card">
+contenedor.innerHTML += `
+<div class="card">
+<div class="badge">${p.desc} OFF</div>
 <img src="${p.img}" alt="${p.nombre}">
-<div class="product-info">
+<div class="info">
 <h3>${p.nombre}</h3>
-<p class="price">$${p.precio.toLocaleString()}</p>
+<div class="price-box">
+<span class="old-price">$${p.precioAnt.toLocaleString()}</span>
+<span class="new-price">$${p.precioNuevo.toLocaleString()}</span>
 </div>
-<button class="btn-add" onclick="agregarAlCarrito(${p.id})">Añadir +</button>
+<button class="btn-add" onclick="agregar(${p.id})">Agregar a la Bolsa</button>
+</div>
 </div>
 `;
 });
 }
 
-function agregarAlCarrito(id) {
+function agregar(id) {
 const prod = productos.find(p => p.id === id);
 carrito.push(prod);
-total += prod.precio;
-actualizarUI();
+montoTotal += prod.precioNuevo;
+
+document.getElementById('cart-bar').style.display = 'flex';
+document.getElementById('qty').innerText = carrito.length;
+document.getElementById('total').innerText = montoTotal.toLocaleString();
+
+// MENSAJE DE WHATSAPP
+let msg = "Hola Inversiones Jerónimo! 🔥 Aproveché las ofertas: ";
+carrito.forEach(i => msg += `%0A- ${i.nombre} ($${i.precioNuevo})`);
+msg += `%0A%0ATotal a pagar: $${montoTotal}`;
+
+const miNumero = "573001234567"; // CAMBIA ESTO POR TU CELULAR
+document.getElementById('wa-link').href = `https://wa.me/${miNumero}?text=${msg}`;
 }
 
-function actualizarUI() {
-document.getElementById('cartBar').style.visibility = 'visible';
-document.getElementById('cartCount').innerText = carrito.length;
-document.getElementById('cartTotal').innerText = total.toLocaleString();
+// CRONOMETRO DE PRUEBA (24 horas)
+let h = 24, m = 0, s = 0;
+setInterval(() => {
+if(s>0) s--; else { s=59; if(m>0) m--; else { m=59; h--; }}
+document.getElementById('countdown').innerText = `${h}:${m<10?'0'+m:m}:${s<10?'0'+s:s}`;
+}, 1000);
 
-// Configura el mensaje de WhatsApp
-let mensaje = `Hola Inversiones Jerónimo! Quiero comprar: `;
-carrito.forEach(i => mensaje += `- ${i.nombre} ($${i.precio}) `);
-mensaje += `Total: $${total}`;
-
-// REEMPLAZA EL NÚMERO ABAJO CON EL TUYO
-const tuTelefono = "573000000000";
-document.getElementById('whatsappBtn').href = `https://wa.me/${tuTelefono}?text=${encodeURIComponent(mensaje)}`;
-}
-
-cargarCatalogo();
+cargarTienda();
 </script>
 
 </body>
 </html>
+
 
 
